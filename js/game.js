@@ -79,7 +79,7 @@ var update = function(modifier) {
 
 function drawBG() {
 	bgImage = new Image();
-	bgImage.src = 'images/01_theLab.jpb';
+	bgImage.src = 'images/01_theLab.jpg';
 	bgImage.onload = function() {
 		context.drawImage(bgImage, 0,0, canvas.width, canvas.height);
 	}
