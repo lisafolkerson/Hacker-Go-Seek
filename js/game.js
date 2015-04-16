@@ -3,8 +3,8 @@ var canvas = document.createElement('canvas');
 var context = canvas.getContext('2d');
 
 //set canvas size
-canvas.width = 512;
-canvas.height = 480;
+canvas.width = 952;
+canvas.height = 708;
 document.body.appendChild(canvas);
 
 
@@ -79,7 +79,7 @@ var update = function(modifier) {
 
 function drawBG() {
 	bgImage = new Image();
-	bgImage.src = 'images/background.png';
+	bgImage.src = 'images/01_theLab.jpb';
 	bgImage.onload = function() {
 		context.drawImage(bgImage, 0,0, canvas.width, canvas.height);
 	}
