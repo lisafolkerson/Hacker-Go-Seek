@@ -37,14 +37,12 @@ var reset = function(){
 
 function render() {
 	// SCOREBOARD
-	context.fillStyle = 'rgb(250,250,250)';
+	context.fillStyle = 'rgba(209, 32, 38, 1)';
 	context.font = "24px Helvetica";
 	context.textAlign = "left";
 	context.textBaseline = "top";
-	context.fillText('Green Divas Caught: ' + monstersCaught, 32, 32);
+	context.fillText('Hambuns Caught: ' + monstersCaught, 32, 32);
 };
-
-
 
 //update game objects
 var update = function(modifier) {
@@ -86,7 +84,7 @@ function drawBG() {
 };
 
 function drawHero() {
-    heroImage = new Image();
+    heroImage = new Image();x
     heroImage.src = 'images/hero.png';
     heroImage.onload = function() {
         context.drawImage(heroImage, hero.x,hero.y);
