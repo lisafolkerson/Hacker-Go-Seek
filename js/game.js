@@ -3,8 +3,8 @@ var canvas = document.createElement('canvas');
 var context = canvas.getContext('2d');
 
 //set canvas size
-canvas.width = 952;
-canvas.height = 708;
+canvas.width = 714;
+canvas.height = 531;
 document.body.appendChild(canvas);
 
 
@@ -32,7 +32,7 @@ var reset = function(){
 	hero.y = canvas.height / 2;
 
 	monster.x = 32 + (Math.random() * (canvas.width - 64));
-	monster.y = 32 + (Math.random() * (canvas.width - 64));
+	monster.y = 32 + (Math.random() * (canvas.height - 64));
 }; //end reset();
 
 function render() {
@@ -84,7 +84,7 @@ function drawBG() {
 };
 
 function drawHero() {
-    heroImage = new Image();x
+    heroImage = new Image();
     heroImage.src = 'images/hero.png';
     heroImage.onload = function() {
         context.drawImage(heroImage, hero.x,hero.y);
