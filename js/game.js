@@ -39,7 +39,7 @@ var reset = function(){
 function render() {
 	// SCOREBOARD
 	context.fillStyle = 'rgba(209, 32, 38, 1)';
-	context.font = "24px Helvetica";
+	context.font = "24px Courier";
 	context.textAlign = "left";
 	context.textBaseline = "top";
 	context.fillText('Hambuns Caught: ' + monstersCaught, 32, 32);
