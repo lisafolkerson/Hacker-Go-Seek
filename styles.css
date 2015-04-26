@@ -2,8 +2,13 @@ body {
 	background: rgba(209, 32, 38, 1);
 	margin: 0 auto;
 	text-align: center;
+	font-family: verdana;
 }
 
 canvas {
 	/*border: 8px solid black;*/
+}
+
+.wrapper {
+	width: 1200px
 }
