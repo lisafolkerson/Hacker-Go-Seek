@@ -29,8 +29,8 @@ addEventListener("keyup", function(e){
 
 //handle reset when hero catches monster
 var reset = function(){
-	hero.x = canvas.width / 2;
-	hero.y = canvas.height / 2;
+	hero.x = 32 + (Math.random() * (canvas.width - 64))
+	hero.y = 32 + (Math.random() * (canvas.width - 64))
 
 	monster.x = 32 + (Math.random() * (canvas.width - 64));
 	monster.y = 32 + (Math.random() * (canvas.height - 64));
@@ -76,6 +76,23 @@ var update = function(modifier) {
 	}
 }; // end update()
 
+function warpZone() {
+	if (hero.x > canvas.width) {
+		hero.x = 0;
+	}
+	else if (hero.x < 0) {
+		hero.x = canvas.width;
+	}
+
+	if (hero.y > canvas.height) {
+		hero.y = 0;
+	}
+	else if (hero.y < 0) {
+		hero.y = canvas.height;
+	}
+}
+
+
 function drawBG() {
 	bgImage = new Image();
 	bgImage.src = 'images/01_theLab.jpg';
@@ -112,6 +129,8 @@ var main = function() {
 	render();
 	drawMonster();
 	drawHero();
+
+	warpZone();
 
 	then = now;
 
