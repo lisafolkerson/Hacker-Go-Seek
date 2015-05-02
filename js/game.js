@@ -86,7 +86,7 @@ function drawBG() {
 
 function drawHero() {
     heroImage = new Image();
-    heroImage.src = 'images/hero.png';
+    heroImage.src = 'images/02-heather-payne.png';
     heroImage.onload = function() {
         context.drawImage(heroImage, hero.x,hero.y);
     }
