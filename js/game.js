@@ -66,10 +66,10 @@ var update = function(modifier) {
 
 	// if statement for if they are touching
 	if (
-		hero.x <= (monster.x + 32)
-		&& monster.x <= (hero.x + 32)
-		&& hero.y <= (monster.y + 32)
-		&& monster.y <= (hero.y + 32)
+		hero.x <= (monster.x + 72)
+		&& monster.x <= (hero.x + 72)
+		&& hero.y <= (monster.y + 72)
+		&& monster.y <= (hero.y + 72)
 		) {
 		++monstersCaught;
 		reset();
