@@ -111,6 +111,7 @@ function drawHero() {
 
 function drawMonster(){
 	monsterImage = new Image();
+	monsterArray = ['images/allison72.png', 'images/Andrea72.png', 'images/Anna72.png', 'images/Hannah272.png', 'images/Heather72.png', 'images/Ian72.png', 'images/Jenny72.png', 'images/Jeremy72.png', 'images/Jordan72.png', 'images/Jordyn72.png', 'images/Karley-72.png', 'images/Kate-72.png', 'images/Kevin-72.png', 'images/Laura72.png', 'images/Lisa72.png', 'images/Lola72.png', 'images/Lucas72.png', 'images/Nate72.png', 'images/Omar72.png', 'images/Ross72.png', 'images/SarahL72.png', 'images/Sarah72.png', 'images/Steph-72.png', 'images/Tammy72.png', 'images/Trudy72.png', 'images/Vivi72.png', 'Winston72.png'];
 	monsterImage.src = 'images/monster.png';
 	monsterImage.onload = function() {
 		context.drawImage(monsterImage, monster.x, monster.y);
