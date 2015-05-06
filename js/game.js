@@ -29,6 +29,7 @@ addEventListener("keyup", function(e){
 
 //handle reset when hero catches monster
 var reset = function(){
+	pickHambun();
 	hero.x = 32 + (Math.random() * (canvas.width - 64))
 	hero.y = 32 + (Math.random() * (canvas.width - 64))
 
@@ -113,7 +114,7 @@ function drawHero() {
 // the monster array should be a global variable - otherwise it will be redefined with the full list of classmates everytime drawMonster() is called. 
 // Here I'm creating an array with just the names. Since the filepath is similar for each image, we can just concatenate the name in. 
 
-var classArray = ['Allison', 'Andrea', 'Anna', 'Hannah', 'Heather', 'Ian', 'Jenny', 'Jeremy', 'Jordan', 'Jordyn', 'Karley', 'Kate', 'Kevin', 'Laura', 'Lisa', 'Lola', 'Lucas', 'Nate', 'Omar', 'Ross', 'SarahL', 'Sarah', 'Steph', 'Tammy', 'Trudy', 'Vivi', 'Winson'];
+var classArray = ['Allison', 'Andrea', 'Anna', 'Hannah', 'Heather', 'Ian', 'Jenny', 'Jeremy', 'Jordan', 'Jordyn', 'Karley', 'Kate', 'Kevin', 'Laura', 'Lisa', 'Lola', 'Lucas', 'Nate', 'Omar', 'Ross', 'SarahL', 'Sarah', 'Steph', 'Tammy', 'Trudy', 'Vivi', 'Winston'];
 
 var length;
 var currentBun;
@@ -137,7 +138,7 @@ function pickHambun() {
 function drawMonster(){
 	monsterImage = new Image();
 
-	monsterImage.src = 'images/jpgs/' + currentBun + '72.png';
+	monsterImage.src = 'images/' + currentBun + '72.png';
 
 	monsterImage.onload = function() {
 		context.drawImage(monsterImage, monster.x, monster.y);
@@ -154,7 +155,7 @@ var main = function() {
 	update(delta / 1000);
 	drawBG();
 	render();
-	// drawMonster();
+	drawMonster();
 	drawHero();
 
 	warpZone();
