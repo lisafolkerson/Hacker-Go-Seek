@@ -35,6 +35,7 @@ var reset = function(){
 
 	monster.x = 32 + (Math.random() * (canvas.width - 64));
 	monster.y = 32 + (Math.random() * (canvas.height - 64));
+	monster.src = Math.random();
 }; //end reset();
 
 function render() {
@@ -67,10 +68,10 @@ var update = function(modifier) {
 
 	// if statement for if they are touching
 	if (
-		hero.x <= (monster.x + 58)
-		&& monster.x <= (hero.x + 58)
-		&& hero.y <= (monster.y + 58)
-		&& monster.y <= (hero.y + 58)
+		hero.x <= (monster.x + 48)
+		&& monster.x <= (hero.x + 48)
+		&& hero.y <= (monster.y + 48)
+		&& monster.y <= (hero.y + 48)
 		) {
 		++monstersCaught;
 		reset();
@@ -137,9 +138,7 @@ function pickHambun() {
 
 function drawMonster(){
 	monsterImage = new Image();
-
 	monsterImage.src = 'images/' + currentBun + '72.png';
-
 	monsterImage.onload = function() {
 		context.drawImage(monsterImage, monster.x, monster.y);
 	}
