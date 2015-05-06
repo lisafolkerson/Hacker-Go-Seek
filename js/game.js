@@ -122,16 +122,21 @@ var currentBun;
 
 // We want to randomly choose one name out of the array
 // Then remove it from the array.
+// Also, check the reset() function, that's where we pick a new hambun!
 
 function pickHambun() {
 	length = classArray.length;
 	var rando = Math.floor(Math.random()*length);
 
-	currentBun = classArray[rando];
-
-	classArray.splice(rando,1);
-
-	return currentBun;
+	if (length <= 0) {
+		// GAME COMPLETED FUNCTION HERE
+		console.log('YOU WIN!');
+	}
+	else {
+		currentBun = classArray[rando];
+		classArray.splice(rando,1);
+		return currentBun;
+	}	
 }
 
 // Concatenate it into our image source
