@@ -78,7 +78,7 @@ var update = function(modifier) {
 
 function warpZone() {
 	if (hero.x > canvas.width) {
-		hero.x = 0;
+		hero.x = 0 ;
 	}
 	else if (hero.x < 0) {
 		hero.x = canvas.width;
@@ -109,13 +109,36 @@ function drawHero() {
     }
 };
 
+
+// the monster array should be a global variable - otherwise it will be redefined with the full list of classmates everytime drawMonster() is called. 
+// Here I'm creating an array with just the names. Since the filepath is similar for each image, we can just concatenate the name in. 
+
+var classArray = ['Allison', 'Andrea', 'Anna', 'Hannah', 'Heather', 'Ian', 'Jenny', 'Jeremy', 'Jordan', 'Jordyn', 'Karley', 'Kate', 'Kevin', 'Laura', 'Lisa', 'Lola', 'Lucas', 'Nate', 'Omar', 'Ross', 'SarahL', 'Sarah', 'Steph', 'Tammy', 'Trudy', 'Vivi', 'Winson'];
+
+var length;
+var currentBun;
+
+// We want to randomly choose one name out of the array
+// Then remove it from the array.
+
+function pickHambun() {
+	length = classArray.length;
+	var rando = Math.floor(Math.random()*length);
+
+	currentBun = classArray[rando];
+
+	classArray.splice(rando,1);
+
+	return currentBun;
+}
+
+// Concatenate it into our image source
+
 function drawMonster(){
 	monsterImage = new Image();
-	var monsterArray = ['images/allison72.png', 'images/Andrea72.png', 'images/Anna72.png', 'images/Hannah272.png', 'images/Heather72.png', 'images/Ian72.png', 'images/Jenny72.png', 'images/Jeremy72.png', 'images/Jordan72.png', 'images/Jordyn72.png', 'images/Karley-72.png', 'images/Kate-72.png', 'images/Kevin-72.png', 'images/Laura72.png', 'images/Lisa72.png', 'images/Lola72.png', 'images/Lucas72.png', 'images/Nate72.png', 'images/Omar72.png', 'images/Ross72.png', 'images/SarahL72.png', 'images/Sarah72.png', 'images/Steph-72.png', 'images/Tammy72.png', 'images/Trudy72.png', 'images/Vivi72.png', 'Winston72.png'];
-	for (var i = 0; i < monsterArray; i++){
-		return(monsterArray[i]);
-	};
-	monsterImage.src = monsterArray[i];
+
+	monsterImage.src = 'images/jpgs/' + currentBun + '72.png';
+
 	monsterImage.onload = function() {
 		context.drawImage(monsterImage, monster.x, monster.y);
 	}
@@ -131,7 +154,7 @@ var main = function() {
 	update(delta / 1000);
 	drawBG();
 	render();
-	drawMonster();
+	// drawMonster();
 	drawHero();
 
 	warpZone();
