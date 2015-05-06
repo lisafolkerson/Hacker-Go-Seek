@@ -3,12 +3,27 @@ body {
 	margin: 0 auto;
 	text-align: center;
 	font-family: courier;
-}
-
-canvas {
-	/*border: 8px solid black;*/
+	margin: 0 auto;
 }
 
 .wrapper {
-	width: 1200px
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	max-width: 1200px
+}
+.content {
+	/*flex: 1;*/
+}
+
+#theZone {
+	/*flex: 1;*/
+}
+
+h1 {
+	border-bottom: 2px solid white;
+	margin: 0 auto;
+	display: inline;
 }

@@ -4,8 +4,11 @@ var context = canvas.getContext('2d');
 
 //set canvas size
 canvas.width = 714;
-canvas.height = 531;
-document.body.appendChild(canvas);
+canvas.height = 551;
+
+//append canvas to the DIV of our choice
+canvas.id = "theZone";
+document.getElementById('main').appendChild(canvas);
 
 
 // the game pieces or objects
@@ -42,9 +45,9 @@ function render() {
 	// SCOREBOARD
 	context.fillStyle = 'rgba(209, 32, 38, 1)';
 	context.font = "24px Courier";
-	context.textAlign = "left";
+	context.textAlign = "center";
 	context.textBaseline = "top";
-	context.fillText('Hambuns Caught: ' + monstersCaught, 32, 32);
+	context.fillText('Hambuns Caught: ' + monstersCaught, canvas.height/2, canvas.width/2);
 };
 
 //update game objects
@@ -115,7 +118,7 @@ function drawHero() {
 // the monster array should be a global variable - otherwise it will be redefined with the full list of classmates everytime drawMonster() is called. 
 // Here I'm creating an array with just the names. Since the filepath is similar for each image, we can just concatenate the name in. 
 
-var classArray = ['Allison', 'Andrea', 'Anna', 'Hannah', 'Heather', 'Ian', 'Jenny', 'Jeremy', 'Jordan', 'Jordyn', 'Karley', 'Kate', 'Kevin', 'Laura', 'Lisa', 'Lola', 'Lucas', 'Nate', 'Omar', 'Ross', 'SarahL', 'Sarah', 'Steph-', 'Tammy', 'Trudy', 'Vivi', 'Winston'];
+var classArray = ['Allison', 'Andrea', 'Anna', 'Hannah', 'Heather', 'Ian', 'Jenny', 'Jeremy', 'Jordan', 'Jordyn', 'Karley', 'Kate', 'Kevin', 'Laura', 'Lisa', 'Lola', 'Lucas', 'Nate', 'Omar', 'Ross', 'SarahL', 'Sarah', 'Steph', 'Tammy', 'Trudy', 'Vivi', 'Winston'];
 
 var length;
 var currentBun;
