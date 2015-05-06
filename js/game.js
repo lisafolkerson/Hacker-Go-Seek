@@ -11,6 +11,66 @@ canvas.id = "theZone";
 document.getElementById('main').appendChild(canvas);
 
 
+//the start screen!
+var startScreen = (function(input) {
+	var rate = 0.128; // R/ms
+
+	var hue = 0; 
+    
+    // are we moving toward red or black?
+    var direction = 1; 
+    var transitioning = false;
+ 
+    // record the input state from last frame
+    // because we need to compare it in the
+    // current frame
+    var wasButtonDown = false;
+
+	//center the text
+	function centerText(ctx, text, y) {
+	    var measurement = ctx.measureText(text);
+	    var x = (ctx.canvas.width - measurement.width) / 2;
+	    ctx.fillText(text, x, y);
+	} // end centerText();
+
+	//draw the starter text
+	function draw (ctx, elapsed) {
+		var y = ctx.canvas.height / 2;
+		ctx.fillStyle = 'white';
+		ctx.font = '48px Courier';
+		centerText(ctx, 'HackerYou-and-Go-Seek', y);
+
+		// aaaand the subtitle
+		var color = 'rgb(' + hue + ',0,0)';
+
+		ctx.fillStyle = color;
+		ctx.font = '24px monospace';
+		centerText(ctx, 'click to begin', y + 30);
+
+	}; // end draw();
+
+	function update(elapsed) {
+	    var amount = rate * elapsed;
+	    hue += amount * direction;
+	    if (hue > 255) direction = -1;
+	    if (hue < 0) direction = 1;
+
+	    rounded_hue = Math.round(hue);
+
+	    var isButtonDown = input.isButtonDown();
+
+	    var mouseJustClicked = !isButtonDown && wasButtonDown;
+
+	    if (mouseJustClicked && !transitioning) {
+	        transitioning = true;
+	        // do something here to transition to the actual game
+	    }
+
+	    wasButtonDown = isButtonDown;
+	} // end update();
+}); // end startScreen();
+
+
 // the game pieces or objects
 var hero = {
 	speed: 256, //speed is in pps
@@ -176,6 +236,7 @@ var main = function() {
 	var now = Date.now();
 	var delta = now - then;
 
+	startScreen();
 	update(delta / 1000);
 	drawBG();
 	render();
@@ -196,6 +257,7 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
 
 //CALL DE GAME YAH
 var then = Date.now();
+startScreen();
 reset();
 main();
 
