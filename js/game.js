@@ -4,7 +4,7 @@ var context = canvas.getContext('2d');
 
 //set canvas size
 canvas.width = 714;
-canvas.height = 551;
+canvas.height = 571;
 
 //append canvas to the DIV of our choice
 canvas.id = "theZone";
@@ -47,7 +47,7 @@ function render() {
 	context.font = "24px Courier";
 	context.textAlign = "center";
 	context.textBaseline = "top";
-	context.fillText('Hambuns Caught: ' + monstersCaught, canvas.height/2, canvas.width/2);
+	context.fillText('Hambuns Caught: ' + monstersCaught, canvas.width/2, 547, 714);
 };
 
 //update game objects
