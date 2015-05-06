@@ -115,7 +115,7 @@ function drawHero() {
 // the monster array should be a global variable - otherwise it will be redefined with the full list of classmates everytime drawMonster() is called. 
 // Here I'm creating an array with just the names. Since the filepath is similar for each image, we can just concatenate the name in. 
 
-var classArray = ['Allison', 'Andrea', 'Anna', 'Hannah', 'Heather', 'Ian', 'Jenny', 'Jeremy', 'Jordan', 'Jordyn', 'Karley', 'Kate', 'Kevin', 'Laura', 'Lisa', 'Lola', 'Lucas', 'Nate', 'Omar', 'Ross', 'SarahL', 'Sarah', 'Steph', 'Tammy', 'Trudy', 'Vivi', 'Winston'];
+var classArray = ['Allison', 'Andrea', 'Anna', 'Hannah', 'Heather', 'Ian', 'Jenny', 'Jeremy', 'Jordan', 'Jordyn', 'Karley', 'Kate', 'Kevin', 'Laura', 'Lisa', 'Lola', 'Lucas', 'Nate', 'Omar', 'Ross', 'SarahL', 'Sarah', 'Steph-', 'Tammy', 'Trudy', 'Vivi', 'Winston'];
 
 var length;
 var currentBun;
