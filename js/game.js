@@ -132,8 +132,8 @@ function pickHambun() {
 	var rando = Math.floor(Math.random()*length);
 
 	if (length <= 0) {
-		// GAME COMPLETED FUNCTION HERE
-		console.log('YOU WIN!');
+		gameOver();
+ 
 	}
 	else {
 		currentBun = classArray[rando];
@@ -151,6 +151,23 @@ function drawMonster(){
 		context.drawImage(monsterImage, monster.x, monster.y);
 	}
 };
+
+var gameOver = function() {
+	// clearInterval(interval);
+	context.font = "60px Courier";
+	context.fillStyle = "rgb(0,0,0)";
+	context.textAlign = "center";
+	context.textBaseline = "middle"
+	context.fillText("YOU WIN!!!", canvas.width/2, canvas.height/2);
+
+	// $(window).keypress(function() {
+	// 	if (0 in keysDown || 32 in keysDown) {
+	// 		classArray = ['Allison', 'Andrea', 'Anna', 'Hannah', 'Heather', 'Ian', 'Jenny', 'Jeremy', 'Jordan', 'Jordyn', 'Karley', 'Kate', 'Kevin', 'Laura', 'Lisa', 'Lola', 'Lucas', 'Nate', 'Omar', 'Ross', 'SarahL', 'Sarah', 'Steph', 'Tammy', 'Trudy', 'Vivi', 'Winston'];
+	// 		reset();
+	// 	}
+	// });
+
+}
 
 
 // MAIN GAME LOOP
