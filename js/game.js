@@ -27,25 +27,25 @@ var startScreen = (function(input) {
     var wasButtonDown = false;
 
 	//center the text
-	function centerText(ctx, text, y) {
-	    var measurement = ctx.measureText(text);
-	    var x = (ctx.canvas.width - measurement.width) / 2;
-	    ctx.fillText(text, x, y);
+	function centerText(context, text, y) {
+	    var measurement = context.measureText(text);
+	    var x = (context.canvas.width - measurement.width) / 2;
+	   context.fillText(text, x, y);
 	} // end centerText();
 
 	//draw the starter text
-	function draw (ctx, elapsed) {
-		var y = ctx.canvas.height / 2;
-		ctx.fillStyle = 'white';
-		ctx.font = '48px Courier';
-		centerText(ctx, 'HackerYou-and-Go-Seek', y);
+	function draw (context, elapsed) {
+		var y = context.canvas.height / 2;
+		context.fillStyle = 'white';
+		context.font = '48px Courier';
+		centerText(context, 'HackerYou-and-Go-Seek', y);
 
 		// aaaand the subtitle
 		var color = 'rgb(' + hue + ',0,0)';
 
-		ctx.fillStyle = color;
-		ctx.font = '24px monospace';
-		centerText(ctx, 'click to begin', y + 30);
+		context.fillStyle = color;
+		context.font = '24px monospace';
+		centerText(context, 'click to begin', y + 30);
 
 	}; // end draw();
 
@@ -67,7 +67,15 @@ var startScreen = (function(input) {
 	    }
 
 	    wasButtonDown = isButtonDown;
+
 	} // end update();
+
+	// this is the object that will be `startScreen`
+	return {
+	    draw: draw,
+	    update: update
+	};
+	
 }); // end startScreen();
 
 
@@ -220,19 +228,13 @@ var gameOver = function() {
 	context.textBaseline = "middle"
 	context.fillText("YOU WIN!!!", canvas.width/2, canvas.height/2);
 
-	// $(window).keypress(function() {
-	// 	if (0 in keysDown || 32 in keysDown) {
-	// 		classArray = ['Allison', 'Andrea', 'Anna', 'Hannah', 'Heather', 'Ian', 'Jenny', 'Jeremy', 'Jordan', 'Jordyn', 'Karley', 'Kate', 'Kevin', 'Laura', 'Lisa', 'Lola', 'Lucas', 'Nate', 'Omar', 'Ross', 'SarahL', 'Sarah', 'Steph', 'Tammy', 'Trudy', 'Vivi', 'Winston'];
-	// 		reset();
-	// 	}
-	// });
-
 }
 
 
 // MAIN GAME LOOP
 
 var main = function() {
+
 	var now = Date.now();
 	var delta = now - then;
 
