@@ -143,16 +143,16 @@ var update = function(modifier) {
 
 function warpZone() {
 	if (hero.x > canvas.width) {
-		hero.x = 0 ;
+		hero.x = -60 ;
 	}
-	else if (hero.x < 0) {
+	else if (hero.x < -60) {
 		hero.x = canvas.width;
 	}
 
 	if (hero.y > canvas.height) {
-		hero.y = 0;
+		hero.y = -40;
 	}
-	else if (hero.y < 0) {
+	else if (hero.y < -40) {
 		hero.y = canvas.height;
 	}
 }
